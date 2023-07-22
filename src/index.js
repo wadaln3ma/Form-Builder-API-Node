@@ -1,7 +1,9 @@
-require("dotenv").config
+require("dotenv").config()
+const mongoose = require("mongoose")
+
 const app = require("./app")
 
-const { PORT } = process.env
+const { PORT, MONGO_URI } = process.env
 
 const startServer = ()=>{
   app.listen(PORT, ()=>{
@@ -9,4 +11,15 @@ const startServer = ()=>{
   })
 }
 
-startServer()
+const connectDB = async ()=>{
+  try {
+    await mongoose.connect(MONGO_URI)
+    console.log("MongoDB Connected")
+    startServer()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+connectDB()
+

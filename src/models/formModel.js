@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const formSchema = new Schema({
   idx : String,
   formTitle: {type: String,require: true, default: 'Untitled'},
+  titleColor: {type: String, requied: true, default: "black"},
   questions: [
       {
       questionId: {type: String, requied: true},

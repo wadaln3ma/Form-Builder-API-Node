@@ -1,4 +1,3 @@
-require("./utils/db")
 const express = require("express")
 const userRoutes = require("./routes/userRoutes")
 const otpRoutes = require("./routes/otpRoutes")

@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const { sendOTP } = require("./otpController")
 
-const signToken = (id) => jwt.sign({_id: id}, process.env.SECRET, { expiresIn: "2d"})
+const signToken = (id) => jwt.sign({_id: id}, process.env.SECRET, { expiresIn: "365d"})
 
 const registerUser = async (req,res)=>{
   const {name, email, password} = req.body

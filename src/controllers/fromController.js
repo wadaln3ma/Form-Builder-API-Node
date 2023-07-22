@@ -3,15 +3,15 @@ const FormModel = require('../models/formModel')
 
 //Adding a new Form Document to DB
 const createForm = async (req, res)=>{
-  const {idx, formTitle, questions} = req.body
+  const {idx, formTitle, titleColor, questions} = req.body
   
-try {
-  const user_id = req.user._id
-  const newForm = await FormModel.create({idx, formTitle, questions, user_id})
-  res.status(200).json({newForm})
-} catch (error) {
-  res.status(400).json({msg: error.message})
-}
+  try {
+    const user_id = req.user._id
+    const newForm = await FormModel.create({idx, formTitle,titleColor, questions, user_id})
+    res.status(200).json({newForm})
+  } catch (error) {
+    res.status(400).json({msg: error.message})
+  }
 }
 
 //Gettng All Forms Documents
